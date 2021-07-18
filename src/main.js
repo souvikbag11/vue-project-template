@@ -7,7 +7,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com"
+}))
 
 new Vue({
     router,
