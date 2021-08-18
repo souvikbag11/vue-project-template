@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <component :is="this.$route.meta.layout || 'default-layout'">
+      <div id="nav">
+        <router-link to="/">Home</router-link>
+        |
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view/>
+    </component>
   </div>
 </template>
 
+<script>
+import defaultLayout from '@/layouts/default'
+
+export default {
+  components: {
+    defaultLayout
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

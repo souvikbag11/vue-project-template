@@ -1,7 +1,11 @@
+import testLayout from '@/layouts/testLayout'
 export default [
     {
         path: '/about',
         name: 'About',
-        component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+        meta: {
+            layout: testLayout
+        },
+        component: () => import('./views/About.vue')
     }
 ]
