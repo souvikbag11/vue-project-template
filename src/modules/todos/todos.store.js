@@ -11,6 +11,7 @@ export default {
             try {
                 // Only fetch if state is empty of reload is required
                 if (!state.todos.length || reload) {
+                    commit('setTodos', [])
                     const todosList = await getAllTodos();
                     commit('setTodos', todosList)
                 }
@@ -19,6 +20,9 @@ export default {
             }
         },
         async getTodosById(context, id) {
+            if (context.state.todos && context.state.todos.length){
+                return context.state.todos.find((x) => x.id === id);
+            }
             try {
                 return await getTodoById(id);
             } catch (e) {
