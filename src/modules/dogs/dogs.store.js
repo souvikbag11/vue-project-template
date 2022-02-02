@@ -6,7 +6,11 @@ export default {
     dogsData: [],
   },
 
-  getters: {},
+  getters: {
+    dogsDataGatters(state) {
+      return state.dogsData;
+    },
+  },
   actions: {
     async getDogsData({ commit, state }, reload) {
       try {

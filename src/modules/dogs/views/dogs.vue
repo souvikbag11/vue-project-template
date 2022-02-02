@@ -28,16 +28,20 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      dogimageData: [],
+      //   dogimageData: [],
     };
+  },
+  computed: {
+    ...mapGetters({
+      dogimageData: "dogs/dogsDataGatters",
+    }),
   },
   async mounted() {
     await this.$store.dispatch("dogs/getDogsData", true);
-
-    this.dogimageData = this.$store.state["dogs"].dogsData;
   },
 };
 </script>
