@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -36,8 +36,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      dogimageData: "dogs/dogsDataGatters",
+    ...mapState({
+      dogimageData: (state) => state["dogs"].dogsData,
     }),
   },
   async mounted() {
